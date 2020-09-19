@@ -13,41 +13,41 @@ Thanapon Ponpadung
 void setup ()
 { 
   size(400,400);
+  noCursor();
   ellipseMode(CENTER);
   rectMode(CENTER); 
 }
 
 void draw ()
-{ background(0);
+{ 
+  noCursor();
+  frameRate(60);
+  background(0);
  
  // Interactive particles
- stroke(0,255,0);
+ strokeWeight(1);
+ stroke(60,229,23);
  fill(0,255,0);
  
- rect(300+(mouseX/20),100+(mouseY/60),15,7.5);
- rect(300-(mouseX/40),100+(mouseY/60),15,7.5);
+ rect(380+(mouseX/20),380+(mouseY/60),15,7.5);
+ rect(380-(mouseX/40),380+(mouseY/60),15,7.5);
  
- rect(50+(mouseX/20),100+(mouseY/60),15,7.5);
- rect(50-(mouseX/40),100+(mouseY/60),15,7.5);
- 
- rect(300+(mouseX/20),350+(mouseY/60),15,7.5);
- rect(300-(mouseX/40),350+(mouseY/60),15,7.5);
+ rect(25-(mouseX/20),40-(mouseY/60),15,7.5);
+ rect(25+(mouseX/40),40+(mouseY/60),15,7.5);
  
 
- 
- rect(50+(mouseX/20),350+(mouseY/60),15,7.5);
- rect(50-(mouseX/40),350+(mouseY/60),15,7.5);
- 
- rect(25-(mouseX/20),35-(mouseY/60),15,7.5);
- rect(25+(mouseX/40),35+(mouseY/60),15,7.5);
- 
- rect(375-(mouseX/20),35-(mouseY/60),15,7.5);
- rect(375+(mouseX/40),35+(mouseY/60),15,7.5);
  
 
  
  // number lower than 250 will appear on the left, higher on the right
- rect(250+(mouseX/20),300+(mouseY/60),10,10);
+ stroke(0,255,0);
+ fill(0,255,0);
+ //small less interactive particle
+ circle(250+(mouseX/20),300+(mouseY/60),10);
+ 
+ // particle that move with mouse
+ circle(width-mouseX,height-mouseY,10);
+ circle(50+(width-mouseX),50+(height-mouseY),10);
  
  //////////////////////////////////////////////////////////////////////////////////
  
@@ -62,7 +62,7 @@ void draw ()
  line(mouseX+10,mouseY+50,mouseX+30,mouseY+75);
  
  //head
- stroke(255,255,255);
+ stroke(0);
  fill(255,255,255);
  ellipse(mouseX,mouseY-30,60,60);
  
