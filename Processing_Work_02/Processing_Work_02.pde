@@ -85,30 +85,74 @@ void draw ()
  
  //////////////// Character /////////////////
  
-  //body
-  strokeWeight(1);
-  stroke(0);
-  fill(255);
-  rect(mouseX,mouseY,20,100);
+// outer circle
+strokeWeight(3);
+stroke(13,97,41);
+noFill();
+circle(mouseX,mouseY,60);
  
-  // legs left - right
-  strokeWeight(1);
-  stroke(0,0,255);
-  line(mouseX-10,mouseY+50,mouseX-30,mouseY+75);
-  line(mouseX+10,mouseY+50,mouseX+30,mouseY+75);
- 
-  //head
-  strokeWeight(1);
-  stroke(0);
-  fill(255,255,255);
-  ellipse(mouseX,mouseY-30,60,60);
- 
-  //eyes left - right
-  strokeWeight(1);
-  stroke(0);
-  fill(0);
-  ellipse(mouseX-10,mouseY-30,16,32);
-  ellipse(mouseX+10,mouseY-30,16,32);
+// inner square
+strokeWeight(1);
+stroke(13,97,41);
+fill(60,299,23,200);
+rect(mouseX,mouseY,40,40);
+
+// Dot A
+stroke(255,255,255);
+fill(255,255,255);
+circle(mouseX,mouseY-20,5);
+
+// Dot B
+stroke(255,255,255);
+fill(255,255,255);
+circle(mouseX-20,mouseY,5);
+
+// Dot C
+stroke(255,255,255);
+fill(255,255,255);
+circle(mouseX+20,mouseY,5);
+
+// Dot D
+stroke(255,255,255);
+fill(255,255,255);
+circle(mouseX,mouseY+20,5);
+
+// Line E
+stroke(255,255,255);
+line(mouseX,mouseY-20,mouseX-20,mouseY);
+
+// Line F
+stroke(255,255,255);
+line(mouseX-20,mouseY,mouseX,mouseY+20);
+
+// Line G
+stroke(255,255,255);
+line(mouseX,mouseY-20,mouseX+20,mouseY);
+
+// Line H
+stroke(255,255,255);
+line(mouseX+20,mouseY,mouseX,mouseY+20);
+
+// Line I
+stroke(255,255,255);
+line(mouseX,mouseY-20,mouseX,mouseY);
+
+// Line J
+stroke(255,255,255);
+line(mouseX-20,mouseY,mouseX,mouseY);
+
+// Line K
+stroke(255,255,255);
+line(mouseX+20,mouseY,mouseX,mouseY);
+
+// Line L
+stroke(255,255,255);
+line(mouseX,mouseY+20,mouseX,mouseY);
+
+// inner circle
+stroke(255);
+fill(255);
+circle(mouseX,mouseY,10);
 
 }
 
