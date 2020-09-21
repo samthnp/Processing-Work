@@ -32,7 +32,7 @@ void draw ()
   
   // Circling Particle 1
   strokeWeight(5);
-  stroke(13,97,41);
+  stroke(13,97,200);
   noFill();
   ellipse(50-(sin(frameCount*0.015)*250),200-(cos(frameCount*0.0150)*100),60,60);
   
@@ -56,7 +56,7 @@ void draw ()
   
   // Circling Particle 1
   noStroke();
-  fill(60,299,23);
+  fill(60,299,200);
   ellipse(50-(sin(frameCount*0.015)*250),200-(cos(frameCount*0.0150)*100),35,35);
   
   // circling particle 2
@@ -74,7 +74,7 @@ void draw ()
   // small particle 1
   strokeWeight(1);
   stroke(0,255,0);
-  fill(0,255,0);
+  fill(60,299,200);
   circle(width-mouseX,height-mouseY,10);
  
  /* particle unused
@@ -85,17 +85,91 @@ void draw ()
  
  //////////////// Character /////////////////
  
+// bigger outer circle
+strokeWeight(3);
+stroke(13,97,200);
+fill(13,97,200,200);
+circle(mouseX,mouseY,100);
+
 // outer circle
 strokeWeight(3);
-stroke(13,97,41);
-noFill();
+noStroke();
+fill(69,299,200,200);
 circle(mouseX,mouseY,60);
  
 // inner square
 strokeWeight(1);
-stroke(13,97,41);
-fill(60,299,23,200);
+noStroke();
+fill(13,97,200,200);
 rect(mouseX,mouseY,40,40);
+
+//////////////// Exoskeleton Parts ///////////////
+
+// line 1
+strokeWeight(3);
+stroke(60,299,200);
+line(mouseX-80,mouseY,mouseX,mouseY-80);
+
+// line 2
+stroke(60,299,200);
+line(mouseX-80,mouseY,mouseX,mouseY+80);
+
+// line 3
+stroke(60,299,200);
+line(mouseX,mouseY-80,mouseX+80,mouseY);
+
+// line 4
+stroke(60,299,200);
+line(mouseX,mouseY+80,mouseX+80,mouseY);
+
+// line 5
+stroke(60,299,200);
+line(mouseX-40,mouseY-40,mouseX,mouseY-60);
+
+// line 6 
+stroke(60,299,200);
+line(mouseX,mouseY-60,mouseX+40,mouseY-40);
+
+// line 7
+stroke(60,299,200);
+line(mouseX-40,mouseY+40,mouseX,mouseY+60);
+
+// line 8
+stroke(60,299,200);
+line(mouseX+40,mouseY+40,mouseX,mouseY+60);
+
+// Line 9
+strokeWeight(1);
+stroke(255,255,255);
+line(mouseX,mouseY-20,mouseX-20,mouseY);
+
+// Line 10
+stroke(255,255,255);
+line(mouseX-20,mouseY,mouseX,mouseY+20);
+
+// Line 11
+stroke(255,255,255);
+line(mouseX,mouseY-20,mouseX+20,mouseY);
+
+// Line 12
+stroke(255,255,255);
+line(mouseX+20,mouseY,mouseX,mouseY+20);
+
+// Line 13
+stroke(255,255,255);
+line(mouseX,mouseY-20,mouseX,mouseY);
+
+// Line 14
+stroke(255,255,255);
+line(mouseX-20,mouseY,mouseX,mouseY);
+
+// Line 15
+stroke(255,255,255);
+line(mouseX+20,mouseY,mouseX,mouseY);
+
+// Line 16
+stroke(255,255,255);
+line(mouseX,mouseY+20,mouseX,mouseY);
 
 // Dot A
 stroke(255,255,255);
@@ -117,41 +191,62 @@ stroke(255,255,255);
 fill(255,255,255);
 circle(mouseX,mouseY+20,5);
 
-// Line E
+// Dot M
 stroke(255,255,255);
-line(mouseX,mouseY-20,mouseX-20,mouseY);
+fill(255,255,255);
+circle(mouseX,mouseY-80,10);
 
-// Line F
+// Dot N
 stroke(255,255,255);
-line(mouseX-20,mouseY,mouseX,mouseY+20);
+fill(255,255,255);
+circle(mouseX-80,mouseY,10);
 
-// Line G
+// Dot O
 stroke(255,255,255);
-line(mouseX,mouseY-20,mouseX+20,mouseY);
+fill(255,255,255);
+circle(mouseX+80,mouseY,10);
 
-// Line H
+// Dot P
 stroke(255,255,255);
-line(mouseX+20,mouseY,mouseX,mouseY+20);
+fill(255,255,255);
+circle(mouseX,mouseY+80,10);
 
-// Line I
+// Dot Q
 stroke(255,255,255);
-line(mouseX,mouseY-20,mouseX,mouseY);
+fill(255,255,255);
+circle(mouseX-40,mouseY-40,10);
 
-// Line J
+// Dot R
 stroke(255,255,255);
-line(mouseX-20,mouseY,mouseX,mouseY);
+fill(255,255,255);
+circle(mouseX+40,mouseY-40,10);
 
-// Line K
+// Dot S
 stroke(255,255,255);
-line(mouseX+20,mouseY,mouseX,mouseY);
+fill(255,255,255);
+circle(mouseX-40,mouseY+40,10);
 
-// Line L
+// Dot T
 stroke(255,255,255);
-line(mouseX,mouseY+20,mouseX,mouseY);
+fill(255,255,255);
+circle(mouseX+40,mouseY+40,10);
+
+// Dot U
+stroke(255,255,255);
+fill(255,255,255);
+circle(mouseX,mouseY-60,10);
+
+// Dot V
+stroke(255,255,255);
+fill(255,255,255);
+circle(mouseX,mouseY+60,10);
+
+
+
 
 // inner circle
-stroke(255);
-fill(255);
+stroke(255,0,0);
+fill(255,0,0);
 circle(mouseX,mouseY,10);
 
 }
