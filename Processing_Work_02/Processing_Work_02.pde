@@ -160,68 +160,68 @@ void draw ()
   
   // Line 1
   strokeWeight(3);
-  stroke(60,299,200);
+  stroke(0,255,0);
   line(mouseX-80,mouseY,mouseX,mouseY-80);
   
   // Line 2
-  stroke(60,299,200);
+  stroke(0,255,0);
   line(mouseX-80,mouseY,mouseX,mouseY+80);
   
   // Line 3
-  stroke(60,299,200);
+  stroke(0,255,0);
   line(mouseX,mouseY-80,mouseX+80,mouseY);
   
   // Line 4
-  stroke(60,299,200);
+  stroke(0,255,0);
   line(mouseX,mouseY+80,mouseX+80,mouseY);
   
   // Line 5
-  stroke(60,299,200);
+  stroke(0,255,0);
   line(mouseX-40,mouseY-40,mouseX,mouseY-60);
   
   // Line 6 
-  stroke(60,299,200);
+  stroke(0,255,0);
   line(mouseX,mouseY-60,mouseX+40,mouseY-40);
   
   // Line 7
-  stroke(60,299,200);
+  stroke(0,255,0);
   line(mouseX-40,mouseY+40,mouseX,mouseY+60);
   
   // Line 8
-  stroke(60,299,200);
+  stroke(0,255,0);
   line(mouseX+40,mouseY+40,mouseX,mouseY+60);
   
   // Line 9
   strokeWeight(1);
-  stroke(255,255,255);
+  stroke(60,299,200);
   line(mouseX,mouseY-20,mouseX-20,mouseY);
   
   // Line 10
-  stroke(255,255,255);
+  stroke(60,299,200);
   line(mouseX-20,mouseY,mouseX,mouseY+20);
   
   // Line 11
-  stroke(255,255,255);
+  stroke(60,299,200);
   line(mouseX,mouseY-20,mouseX+20,mouseY);
   
   // Line 12
-  stroke(255,255,255);
+  stroke(60,299,200);
   line(mouseX+20,mouseY,mouseX,mouseY+20);
   
   // Line 13
-  stroke(255,255,255);
+  stroke(60,299,200);
   line(mouseX,mouseY-20,mouseX,mouseY);
   
   // Line 14
-  stroke(255,255,255);
+  stroke(60,299,200);
   line(mouseX-20,mouseY,mouseX,mouseY);
   
   // Line 15
-  stroke(255,255,255);
+  stroke(60,299,200);
   line(mouseX+20,mouseY,mouseX,mouseY);
   
   // Line 16
-  stroke(255,255,255);
+  stroke(60,299,200);
   line(mouseX,mouseY+20,mouseX,mouseY);
   
   // Dot A
@@ -309,6 +309,18 @@ void mousePressed()
   // slow down framerate to make the event clearer to see
   frameRate(5);
   background(255);
+  
+  /////////////// Frame vignette Effect //////////////////
+  noStroke();
+  fill(255,0,0);
+  rect(5,0,200,18);
+  rect(5,0,11,200);
+  rect(5,400,200,18);
+  rect(5,400,11,200);
+  rect(400,0,200,18);
+  rect(400,0,18,200);
+  rect(400,400,200,18);
+  rect(400,400,18,200);
     
   ////////////////// Draw lighting to particles /////////////////////////////////
    
@@ -368,5 +380,69 @@ void mousePressed()
   // Small particle 1
   strokeWeight(3);
   circle(width-mouseX,height-mouseY,20);
+  
+   //////////////// Character /////////////////
+ 
+  // Outer circle
+  strokeWeight(3);
+  noStroke();
+  fill(255,0,0);
+  circle(mouseX,mouseY,60);
+   
+  // Inner square
+  strokeWeight(1);
+  noStroke();
+  fill(255);
+  rect(mouseX,mouseY,40,40);
+  
+   // Line 9
+  strokeWeight(1);
+  stroke(0);
+  line(mouseX,mouseY-20,mouseX-20,mouseY);
+  
+  // Line 10
+  stroke(0);
+  line(mouseX-20,mouseY,mouseX,mouseY+20);
+  
+  // Line 11
+  stroke(0);
+  line(mouseX,mouseY-20,mouseX+20,mouseY);
+  
+  // Line 12
+  stroke(0);
+  line(mouseX+20,mouseY,mouseX,mouseY+20);
+  
+  // Line 13
+  stroke(0);
+  line(mouseX,mouseY-20,mouseX,mouseY);
+  
+  // Line 14
+  stroke(0);
+  line(mouseX-20,mouseY,mouseX,mouseY);
+  
+  // Line 15
+  stroke(0);
+  line(mouseX+20,mouseY,mouseX,mouseY);
+  
+  // Line 16
+  stroke(0);
+  line(mouseX,mouseY+20,mouseX,mouseY);
+  
+  // Dot A
+  stroke(0);
+  fill(0);
+  circle(mouseX,mouseY-20,5);
+  
+  // Dot B
+  circle(mouseX-20,mouseY,5);
+  
+  // Dot C
+  circle(mouseX+20,mouseY,5);
+  
+  // Dot D
+  circle(mouseX,mouseY+20,5);
+  
+  // inner circle
+  circle(mouseX,mouseY,10);
  
 }
