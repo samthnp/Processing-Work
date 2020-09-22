@@ -1,10 +1,10 @@
 /*
 
-AO-15 the angry robot 
+AO-13 the angry robot 
 
 Thanapon Ponpadung
 
-AO-15 is looking for electron to eat. Can you help him?
+AO-13 is looking for electron to eat. Can you help him?
 Be careful though! Making him angry and he'll shock everything near him!
 
 **press left mouse button to shoot lighting shock**
@@ -135,22 +135,14 @@ void draw ()
   stroke(0,255,0);
   fill(60,299,200);
   circle(width-mouseX,height-mouseY,10);
-  
-  ////////// Lines between particles //////////////////////
-  strokeWeight(3);
-  stroke(0,299,0);
-  
-  line(200-(cos(mouseY*0.015)*100),200-(cos(mouseX*0.015)*100),100-(sin(mouseY*0.015)*50),100-(sin(mouseX*0.015)*50));
-  line(200-(cos(mouseY*0.015)*100),200-(cos(mouseX*0.015)*100),width-mouseX,height-mouseY);
-  line(100-(sin(mouseY*0.015)*50),100-(sin(mouseX*0.015)*50),width-mouseX,height-mouseY);
- 
+
   //////////////// Character /////////////////
  
   // Bigger outer circle
   strokeWeight(3);
   stroke(13,97,200);
   fill(13,97,200,400);
-  circle(mouseX,mouseY,100);
+  circle(mouseX,mouseY,75);
 
   // Outer circle
   strokeWeight(3);
@@ -168,139 +160,73 @@ void draw ()
   
   // Line 1
   strokeWeight(3);
-  stroke(0,255,0);
-  line(mouseX-80,mouseY,mouseX,mouseY-80);
-  
-  // Line 2
-  stroke(0,255,0);
-  line(mouseX-80,mouseY,mouseX,mouseY+80);
-  
-  // Line 3
-  stroke(0,255,0);
-  line(mouseX,mouseY-80,mouseX+80,mouseY);
-  
-  // Line 4
-  stroke(0,255,0);
-  line(mouseX,mouseY+80,mouseX+80,mouseY);
-  
-  // Line 5
-  stroke(0,255,0);
-  line(mouseX-40,mouseY-40,mouseX,mouseY-60);
-  
-  // Line 6 
-  stroke(0,255,0);
-  line(mouseX,mouseY-60,mouseX+40,mouseY-40);
-  
-  // Line 7
-  stroke(0,255,0);
-  line(mouseX-40,mouseY+40,mouseX,mouseY+60);
-  
-  // Line 8
-  stroke(0,255,0);
-  line(mouseX+40,mouseY+40,mouseX,mouseY+60);
-  
-  // Line 9
-  strokeWeight(1);
-  stroke(60,299,200);
+  stroke(0,299,0);
   line(mouseX,mouseY-20,mouseX-20,mouseY);
   
-  // Line 10
-  stroke(60,299,200);
+  // Line 2
   line(mouseX-20,mouseY,mouseX,mouseY+20);
   
-  // Line 11
-  stroke(60,299,200);
+  // Line 3
   line(mouseX,mouseY-20,mouseX+20,mouseY);
   
-  // Line 12
-  stroke(60,299,200);
+  // Line 4
   line(mouseX+20,mouseY,mouseX,mouseY+20);
   
-  // Line 13
-  stroke(60,299,200);
+  // Line 5
   line(mouseX,mouseY-20,mouseX,mouseY);
   
-  // Line 14
-  stroke(60,299,200);
+  // Line 6
   line(mouseX-20,mouseY,mouseX,mouseY);
   
-  // Line 15
-  stroke(60,299,200);
+  // Line 7
   line(mouseX+20,mouseY,mouseX,mouseY);
   
-  // Line 16
-  stroke(60,299,200);
+  // Line 8
   line(mouseX,mouseY+20,mouseX,mouseY);
+  
+  // Line 1A to 1B
+  line(mouseX,mouseY-40,mouseX-40,mouseY);
+  
+  // Line 1A to 1C
+  line(mouseX,mouseY-40,mouseX+40,mouseY);
+  
+  // Line 1B to 1D
+  line(mouseX-40,mouseY,mouseX,mouseY+40);
+  
+  // Line 1C to 1D
+  line(mouseX+40,mouseY,mouseX,mouseY+40);
   
   // Dot A
   stroke(255,255,255);
   fill(255,255,255);
   circle(mouseX,mouseY-20,5);
   
+  // Dot 1A
+  circle(mouseX,mouseY-40,5);
+  
   // Dot B
   stroke(255,255,255);
   fill(255,255,255);
   circle(mouseX-20,mouseY,5);
+  
+  // Dot 1B
+  circle(mouseX-40,mouseY,5);
   
   // Dot C
   stroke(255,255,255);
   fill(255,255,255);
   circle(mouseX+20,mouseY,5);
   
+  // Dot 1C
+  circle(mouseX+40,mouseY,5);
+  
   // Dot D
   stroke(255,255,255);
   fill(255,255,255);
   circle(mouseX,mouseY+20,5);
   
-  // Dot M
-  stroke(255,255,255);
-  fill(255,255,255);
-  circle(mouseX,mouseY-80,10);
-  
-  // Dot N
-  stroke(255,255,255);
-  fill(255,255,255);
-  circle(mouseX-80,mouseY,10);
-  
-  // Dot O
-  stroke(255,255,255);
-  fill(255,255,255);
-  circle(mouseX+80,mouseY,10);
-  
-  // Dot P
-  stroke(255,255,255);
-  fill(255,255,255);
-  circle(mouseX,mouseY+80,10);
-  
-  // Dot Q
-  stroke(255,255,255);
-  fill(255,255,255);
-  circle(mouseX-40,mouseY-40,10);
-  
-  // Dot R
-  stroke(255,255,255);
-  fill(255,255,255);
-  circle(mouseX+40,mouseY-40,10);
-  
-  // Dot S
-  stroke(255,255,255);
-  fill(255,255,255);
-  circle(mouseX-40,mouseY+40,10);
-  
-  // Dot T
-  stroke(255,255,255);
-  fill(255,255,255);
-  circle(mouseX+40,mouseY+40,10);
-  
-  // Dot U
-  stroke(255,255,255);
-  fill(255,255,255);
-  circle(mouseX,mouseY-60,10);
-  
-  // Dot V
-  stroke(255,255,255);
-  fill(255,255,255);
-  circle(mouseX,mouseY+60,10);
+  // Dot 1D
+  circle(mouseX,mouseY+40,5);
   
   
   // inner circle
@@ -315,7 +241,7 @@ void mousePressed()
 {
   
   // slow down framerate to make the event clearer to see
-  frameRate(5);
+  frameRate(3);
   background(255);
   
   /////////////// Frame vignette Effect //////////////////
@@ -390,9 +316,13 @@ void mousePressed()
   circle(width-mouseX,height-mouseY,20);
   
    //////////////// Character /////////////////
+   
+  // bigger Outer circle
+  noStroke();
+  fill(0,0,0);
+  circle(mouseX,mouseY,70);
  
   // Outer circle
-  strokeWeight(3);
   noStroke();
   fill(255,0,0);
   circle(mouseX,mouseY,60);
@@ -403,39 +333,78 @@ void mousePressed()
   fill(255);
   rect(mouseX,mouseY,40,40);
   
-   // Line 9
+   // Line 1
   strokeWeight(1);
   stroke(0);
   line(mouseX,mouseY-20,mouseX-20,mouseY);
   
-  // Line 10
+  // Line 2
   stroke(0);
   line(mouseX-20,mouseY,mouseX,mouseY+20);
   
-  // Line 11
+  // Line 3
   stroke(0);
   line(mouseX,mouseY-20,mouseX+20,mouseY);
   
-  // Line 12
+  // Line 4
   stroke(0);
   line(mouseX+20,mouseY,mouseX,mouseY+20);
   
-  // Line 13
+  // Line 5
   stroke(0);
   line(mouseX,mouseY-20,mouseX,mouseY);
   
-  // Line 14
+  // Line 6
   stroke(0);
   line(mouseX-20,mouseY,mouseX,mouseY);
   
-  // Line 15
+  // Line 7
   stroke(0);
   line(mouseX+20,mouseY,mouseX,mouseY);
   
-  // Line 16
+  // Line 8
   stroke(0);
   line(mouseX,mouseY+20,mouseX,mouseY);
   
+  // Line 2A to 2B
+  strokeWeight(2);
+  stroke(255,0,0);
+  line(mouseX-40,mouseY-20,mouseX-20,mouseY-40);
+  
+  // Line 2A to B
+  line(mouseX-40,mouseY-20,mouseX-20,mouseY);
+  
+  // Line 2B to A
+  line(mouseX-20,mouseY-40,mouseX,mouseY-20);
+  
+  // 2C to A
+  line(mouseX+20,mouseY-40,mouseX,mouseY-20);
+  
+  // 2D to C
+  line(mouseX+40,mouseY-20,mouseX+20,mouseY);
+  
+  // 2C to 2D
+  line(mouseX+20,mouseY-40,mouseX+40,mouseY-20);
+  
+  // 2E to B
+  line(mouseX-40,mouseY+20,mouseX-20,mouseY);
+  
+  // 2F to D
+  line(mouseX-20,mouseY+40,mouseX,mouseY+20);
+  
+  // 2E to 2F
+  line(mouseX-40,mouseY+20,mouseX-20,mouseY+40);
+  
+  // 2H to D
+  line(mouseX+20,mouseY+40,mouseX,mouseY+20);
+  
+  // 2G to C
+  line(mouseX+40,mouseY+20,mouseX+20,mouseY);
+  
+  // 2G to 2H
+  line(mouseX+40,mouseY+20,mouseX+20,mouseY+40);
+  
+    
   // Dot A
   stroke(0);
   fill(0);
@@ -449,6 +418,30 @@ void mousePressed()
   
   // Dot D
   circle(mouseX,mouseY+20,5);
+  
+  // Dot 2A
+    circle(mouseX-40,mouseY-20,5);
+  
+  // Dot 2B
+   circle(mouseX-20,mouseY-40,5);
+  
+  // Dot 2C
+   circle(mouseX+20,mouseY-40,5);
+  
+  // Dot 2D
+   circle(mouseX+40,mouseY-20,5);
+  
+  // Dot 2E
+   circle(mouseX-40,mouseY+20,5);
+  
+  // Dot 2F
+   circle(mouseX-20,mouseY+40,5);
+  
+  // Dot 2G
+   circle(mouseX+40,mouseY+20,5);
+  
+  // Dot 2H
+  circle(mouseX+20,mouseY+40,5);
   
   // inner circle
   circle(mouseX,mouseY,10);
