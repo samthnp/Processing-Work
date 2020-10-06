@@ -20,14 +20,15 @@ float verticalGrid = 100;
 float horizontalGrid = 100;
 float player2MovementX = 200;
 float player2MovementY = 300;
-float player2Speed = 3;
+float player2Speed = 5.5;
 
-float player2PositionX;
-float player2PositionY;
+
 
 boolean isHit = false;
 boolean rightMovement = false;
 boolean leftMovement = false;
+boolean upMovement = false;
+boolean downMovement = false;
 
 
 void setup()
@@ -53,6 +54,8 @@ void draw()
   
   drawPlayerCharacter1();
   drawPlayerCharacter2();
+  updatePlayer2Movement();
+  
   
 }
 
@@ -79,7 +82,7 @@ void drawPlayerCharacter1()
 {
   // draw shape and assign movement
   noStroke();
-  fill(0,255,0);
+  fill(53,117,211,1000);
   circle(mouseX,mouseY,10);
   
 }
@@ -88,27 +91,87 @@ void drawPlayerCharacter2()
 {
   
   noStroke();
-  fill(0,255,0);
-  circle(player2PositionX,player2PositionY,10);
-  
-  player2PositionX = player2MovementX;
-  player2PositionY = player2MovementY;
+  fill(129,0,220,1000);
+  circle(player2MovementX,player2MovementY,10);
+
   
 }
 
 void drawConnectingLine()
 {
-  
+  float connectingLinePosition1 = mouseX;
+  float connectingLinePosition2 = mouseY;
+  float connectingLinePosition3 = player2MovementX;
+  float connectingLinePosition4 = player2MovementY;
+  // line is drawn from player1 to player2 the position is (1,2,3,4)
   strokeWeight(3);
   stroke(255);
-  line(mouseX,mouseY,player2PositionX,player2PositionY);
+  line(connectingLinePosition1,connectingLinePosition2,connectingLinePosition3,connectingLinePosition4);
   
 }
 
-// PlayerCharacter2 Controller
-void keyisPressed()
+// PlayerCharacter2 Controller using built-in function
+void keyPressed()
 {
-  if (key == LEFT){
+  if (keyCode == LEFT){
     leftMovement = true;
   }
+  else if (keyCode == RIGHT){
+    rightMovement = true;
+  }
+  else if (keyCode == UP){
+    upMovement = true;
+  }
+  else if (keyCode == DOWN){
+    downMovement = true;
+  } 
+  
+}
+
+// prevent input for player controller is from being true forever by stoping the boolean when keys are released
+void keyReleased ()
+{
+  if (keyCode == LEFT){
+    leftMovement = false;
+  }
+  if (keyCode == RIGHT){
+    rightMovement = false;
+  }
+  if (keyCode == UP){
+    upMovement = false;
+  }
+  if (keyCode == DOWN){
+    downMovement = false;
+  } 
+}  
+
+void updatePlayer2Movement()
+{
+  if (leftMovement == true){
+    player2MovementX = player2MovementX-player2Speed;
+  }
+  if (rightMovement == true){
+    player2MovementX = player2MovementX+player2Speed;
+  }
+  if (player2MovementX<=20){
+    player2MovementX = 20;
+  }
+  if (player2MovementX>=380){
+    player2MovementX = 380;
+  }
+  
+  if(upMovement == true){
+    player2MovementY = player2MovementY-player2Speed;
+  }
+  if(downMovement == true){
+    player2MovementY = player2MovementY+player2Speed;
+  }
+  if (player2MovementY<=20){
+    player2MovementY = 20;
+  }
+  if (player2MovementX>=380){
+    player2MovementX = 380;
+  }
+  
+  
 }
