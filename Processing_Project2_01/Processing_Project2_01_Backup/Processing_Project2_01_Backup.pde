@@ -20,16 +20,16 @@ float verticalGrid = 100;
 float horizontalGrid = 100;
 
 // player's movement
-float playerPositionX = 200;
-float playerPositionY = 200;
-float playerSpeed = 5.5;
+float player2PositiontX = 200;
+float player2PositiontY = 200;
+float player2Speed = 5.5;
 boolean rightMovement = false;
 boolean leftMovement = false;
 boolean upMovement = false;
 boolean downMovement = false;
 
 // player's properties
-
+boolean isHit = false;
 
 // enemy's movement
 int enemy1PositionX = 0;
@@ -60,26 +60,23 @@ void draw()
 
 void playScreen ()
 {
-  if (gameIsOver == false)
-  
- {
-   
+  if (gameIsOver == false){
   background(2,60,0);  
   drawGridBackground();
  
   spawnEnemy1();
-  collisionDetection();
   
-  drawPlayerCharacter();
-  updatePlayerMovement();
+  drawConnectingLine();
   
- }
+  drawPlayerCharacter1();
+  drawPlayerCharacter2();
+  updatePlayer2Movement();
+  }
   else if (gameIsOver == true){
   restartScreen();
   }
   
 }
-
 
 void restartScreen ()
 {
@@ -122,30 +119,50 @@ void drawGridBackground()
   line(0,horizontalGrid,verticalGrid+300,horizontalGrid);
   line(0,horizontalGrid+100,verticalGrid+300,horizontalGrid+100);
   line(0,horizontalGrid+200,verticalGrid+300,horizontalGrid+200);
+  
+ 
 }
 
-void drawPlayerCharacter()
+void drawPlayerCharacter1()
 {
+  // draw shape and assign movement
   noStroke();
   fill(53,117,211,800);
-  
-  circle(playerPositionX,playerPositionY,20);
-  
-  
+  circle(mouseX,mouseY,20);
   fill(53,117,211,1000);
-  circle(playerPositionX,playerPositionY,10);
+  circle(mouseX,mouseY,10);
   fill(53,255,211);
-  circle(playerPositionX,playerPositionY,5);
-  
+  circle(mouseX,mouseY,5);
 }
 
-void collisionDetection (){
+void drawPlayerCharacter2()
+{
+  noStroke();
+  fill(129,0,220,1000);
+  circle(player2PositiontX,player2PositiontY,10);
+}
+
+void drawConnectingLine()
+{
+  float LinePosition1 = mouseX;
+  float LinePosition2 = mouseY;
+  float LinePosition3 = player2PositiontX;
+  float LinePosition4 = player2PositiontY;
+  // line is drawn from player1 to player2 the position is (1,2,3,4)
+  strokeWeight(8);
+  stroke(0,255,0);
+  line(LinePosition1,LinePosition2,LinePosition3,LinePosition4);
+  strokeWeight(3);
+  stroke(0);
+  line(LinePosition1,LinePosition2,LinePosition3,LinePosition4);
   
-  if (playerPositionX +10 > (enemy1PositionX -20) && playerPositionY +10 < (enemy1PositionY +20) && playerPositionX -10 <(enemy1PositionX+20) && playerPositionY -10 > (enemy1PositionY -20) && gameIsOver == false )
-  {
-    gameIsOver = true;
+  if (gameIsOver == false){
+  
+  if ((enemy1PositionY > LinePosition2 || enemy1PositionY > LinePosition4) && (enemy1PositionX > LinePosition1 && enemy1PositionX < LinePosition3)){
+   
+      gameIsOver = true;
   }
-  
+  }
 }
 
 // PlayerCharacter2 Controller using built-in function
@@ -185,37 +202,38 @@ void keyReleased ()
   if (keyCode == DOWN){
     downMovement = false;
   } 
+  
   if (key == 'F' || key == 'f'){
    gameIsOver = true;
  }
 }  
 
-void updatePlayerMovement()
+void updatePlayer2Movement()
 {
   if (leftMovement == true){
-    playerPositionX = playerPositionX-playerSpeed;
+    player2PositiontX = player2PositiontX-player2Speed;
   }
   if (rightMovement == true){
-    playerPositionX = playerPositionX+playerSpeed;
+    player2PositiontX = player2PositiontX+player2Speed;
   }
-  if (playerPositionX<=20){
-    playerPositionX = 20;
+  if (player2PositiontX<=20){
+    player2PositiontX = 20;
   }
-  if (playerPositionX>=380){
-    playerPositionX = 380;
+  if (player2PositiontX>=380){
+    player2PositiontX = 380;
   }
   
   if(upMovement == true){
-    playerPositionY = playerPositionY-playerSpeed;
+    player2PositiontY = player2PositiontY-player2Speed;
   }
   if(downMovement == true){
-    playerPositionY = playerPositionY+playerSpeed;
+    player2PositiontY = player2PositiontY+player2Speed;
   }
-  if (playerPositionY<=20){
-    playerPositionY = 20;
+  if (player2PositiontY<=20){
+    player2PositiontY = 20;
   }
-  if (playerPositionY>=380){
-    playerPositionY = 380;
+  if (player2PositiontY>=380){
+    player2PositiontY = 380;
   }
 }
 
