@@ -15,20 +15,29 @@
   06-Oct-2020
 
 */
-
+// graphic
 float verticalGrid = 100;
 float horizontalGrid = 100;
-float player2MovementX = 200;
-float player2MovementY = 300;
+
+// player's movement
+float player2PositiontX = 200;
+float player2PositiontY = 300;
 float player2Speed = 5.5;
-
-
-
-boolean isHit = false;
 boolean rightMovement = false;
 boolean leftMovement = false;
 boolean upMovement = false;
 boolean downMovement = false;
+
+// player's properties
+boolean isHit = false;
+
+// enemy's movement
+int enemy1PositionX = 0;
+int enemy1PositionY = 0;
+int enemy1Speed = 3;
+
+boolean gameIsOver = false;
+
 
 
 void setup()
@@ -46,17 +55,53 @@ void setup()
 
 void draw()
 {
-  
+    playScreen();
+}
+
+void playScreen ()
+{
+  if (gameIsOver == false){
   background(2,60,0);  
   drawGridBackground();
+ 
+  spawnEnemy1();
   
   drawConnectingLine();
   
   drawPlayerCharacter1();
   drawPlayerCharacter2();
   updatePlayer2Movement();
+  }
+  else if (gameIsOver == true){
+  restartScreen();
+  }
   
+}
+
+void restartScreen ()
+{
+  gameIsOver = true;
+  fill(0);
+  rect(200,200,width,height);
+  fill(0,255,0);
+  textSize(22);
+  stroke(2);
+  text("Click Left Mouse Button",70,120);
+  text("to Restart",130,150);
+ 
+ noStroke();
+ fill(255);
+ rect(200,200,100,100);
+ // mouse cursor after game over
+ fill(0,255,0);
+ circle(mouseX,mouseY,20);
   
+ if (mousePressed)
+  {
+    if (mouseX >= 180 && mouseX <= 220){
+      gameIsOver = false;
+    }
+  }
 }
 
 void drawGridBackground()
@@ -82,8 +127,12 @@ void drawPlayerCharacter1()
 {
   // draw shape and assign movement
   noStroke();
+  fill(53,117,211,800);
+  circle(mouseX,mouseY,20);
   fill(53,117,211,1000);
   circle(mouseX,mouseY,10);
+  fill(53,255,211);
+  circle(mouseX,mouseY,5);
   
 }
 
@@ -92,7 +141,7 @@ void drawPlayerCharacter2()
   
   noStroke();
   fill(129,0,220,1000);
-  circle(player2MovementX,player2MovementY,10);
+  circle(player2PositiontX,player2PositiontY,10);
 
   
 }
@@ -101,11 +150,14 @@ void drawConnectingLine()
 {
   float connectingLinePosition1 = mouseX;
   float connectingLinePosition2 = mouseY;
-  float connectingLinePosition3 = player2MovementX;
-  float connectingLinePosition4 = player2MovementY;
+  float connectingLinePosition3 = player2PositiontX;
+  float connectingLinePosition4 = player2PositiontY;
   // line is drawn from player1 to player2 the position is (1,2,3,4)
+  strokeWeight(8);
+  stroke(0,255,0);
+  line(connectingLinePosition1,connectingLinePosition2,connectingLinePosition3,connectingLinePosition4);
   strokeWeight(3);
-  stroke(255);
+  stroke(0);
   line(connectingLinePosition1,connectingLinePosition2,connectingLinePosition3,connectingLinePosition4);
   
 }
@@ -126,6 +178,10 @@ void keyPressed()
     downMovement = true;
   } 
   
+  else if (key == 'F' || key == 'f'){
+   gameIsOver = true;
+ }
+  
 }
 
 // prevent input for player controller is from being true forever by stoping the boolean when keys are released
@@ -143,35 +199,55 @@ void keyReleased ()
   if (keyCode == DOWN){
     downMovement = false;
   } 
+  
+  if (key == 'F' || key == 'f'){
+   gameIsOver = true;
+ }
 }  
 
 void updatePlayer2Movement()
 {
   if (leftMovement == true){
-    player2MovementX = player2MovementX-player2Speed;
+    player2PositiontX = player2PositiontX-player2Speed;
   }
   if (rightMovement == true){
-    player2MovementX = player2MovementX+player2Speed;
+    player2PositiontX = player2PositiontX+player2Speed;
   }
-  if (player2MovementX<=20){
-    player2MovementX = 20;
+  if (player2PositiontX<=20){
+    player2PositiontX = 20;
   }
-  if (player2MovementX>=380){
-    player2MovementX = 380;
+  if (player2PositiontX>=380){
+    player2PositiontX = 380;
   }
   
   if(upMovement == true){
-    player2MovementY = player2MovementY-player2Speed;
+    player2PositiontY = player2PositiontY-player2Speed;
   }
   if(downMovement == true){
-    player2MovementY = player2MovementY+player2Speed;
+    player2PositiontY = player2PositiontY+player2Speed;
   }
-  if (player2MovementY<=20){
-    player2MovementY = 20;
+  if (player2PositiontY<=20){
+    player2PositiontY = 20;
   }
-  if (player2MovementX>=380){
-    player2MovementX = 380;
+  if (player2PositiontY>=380){
+    player2PositiontY = 380;
+  }
+}
+
+void spawnEnemy1 ()
+{
+  if(gameIsOver == false){
+  enemy1PositionY = enemy1PositionY + enemy1Speed;
+  
+  if(enemy1PositionY>random(410,420)){
+    enemy1PositionY = 0;
+    
+    enemy1PositionX = int (random(10,390));
   }
   
-  
+  noStroke();
+  fill(255);
+  rect(enemy1PositionX,enemy1PositionY,20,20);
+
+  }
 }
