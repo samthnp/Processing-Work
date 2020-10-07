@@ -12,6 +12,7 @@
   Interactive Toy
   
   By Thanapon Ponpadung
+  Student Number: 991598910
   06-Oct-2020
 
 */
@@ -35,6 +36,10 @@ boolean downMovement = false;
 int enemy1PositionX = 0;
 int enemy1PositionY = 0;
 int enemy1Speed = 3;
+
+int enemy2PositionX = 0;
+int enemy2PositionY = 0;
+int enemy2Speed = 2;
 
 boolean gameIsOver = false;
 
@@ -68,6 +73,7 @@ void playScreen ()
   drawGridBackground();
  
   spawnEnemy1();
+  spawnEnemy2();
   collisionDetection();
   
   drawPlayerCharacter();
@@ -227,12 +233,30 @@ void spawnEnemy1 ()
   if(enemy1PositionY>random(410,420)){
     enemy1PositionY = 0;
     
-    enemy1PositionX = int (random(10,390));
+    enemy1PositionX = int (random(50,390));
   }
-  
+    
   noStroke();
   fill(255);
   rect(enemy1PositionX,enemy1PositionY,20,20);
+
+  }
+}
+
+void spawnEnemy2 ()
+{
+  if(gameIsOver == false){
+  enemy2PositionY = enemy2PositionY + enemy2Speed;
+  
+  if(enemy2PositionY>random(410,420) && enemy2PositionY != enemy2PositionX){
+    enemy2PositionY = 0;
+    
+    enemy2PositionX = int (random(10,300));
+  }
+    
+  noStroke();
+  fill(255);
+  rect(enemy2PositionX,enemy2PositionY,20,20);
 
   }
 }
