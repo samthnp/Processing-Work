@@ -41,6 +41,18 @@ int enemy2PositionX = 0;
 int enemy2PositionY = 0;
 int enemy2Speed = 2;
 
+int enemy3PositionX = 0;
+int enemy3PositionY = 0;
+int enemy3Speed = 2;
+
+int enemy4PositionX = 0;
+int enemy4PositionY = 0;
+int enemy4Speed = 2;
+
+int enemy5PositionX = 0;
+int enemy5PositionY = 0;
+int enemy5Speed = 2;
+
 boolean gameIsOver = false;
 
 
@@ -74,7 +86,14 @@ void playScreen ()
  
   spawnEnemy1();
   spawnEnemy2();
-  collisionDetection();
+  spawnEnemy3();
+  spawnEnemy4();
+  spawnEnemy5();
+  collisionDetection1();
+  collisionDetection2();
+  collisionDetection3();
+  collisionDetection4();
+  collisionDetection5();
   
   drawPlayerCharacter();
   updatePlayerMovement();
@@ -145,14 +164,6 @@ void drawPlayerCharacter()
   
 }
 
-void collisionDetection (){
-  
-  if (playerPositionX +10 > (enemy1PositionX -20) && playerPositionY +10 < (enemy1PositionY +20) && playerPositionX -10 <(enemy1PositionX+20) && playerPositionY -10 > (enemy1PositionY -20) && gameIsOver == false )
-  {
-    gameIsOver = true;
-  }
-  
-}
 
 // PlayerCharacter2 Controller using built-in function
 void keyPressed()
@@ -248,7 +259,7 @@ void spawnEnemy2 ()
   if(gameIsOver == false){
   enemy2PositionY = enemy2PositionY + enemy2Speed;
   
-  if(enemy2PositionY>random(410,420) && enemy2PositionY != enemy2PositionX){
+  if(enemy2PositionY>random(410,420) && enemy2PositionX != enemy1PositionX){
     enemy2PositionY = 0;
     
     enemy2PositionX = int (random(10,300));
@@ -259,4 +270,104 @@ void spawnEnemy2 ()
   rect(enemy2PositionX,enemy2PositionY,20,20);
 
   }
+}
+
+void spawnEnemy3 ()
+{
+  if(gameIsOver == false){
+  enemy3PositionY = enemy3PositionY + enemy3Speed;
+  
+  if(enemy3PositionY>random(410,420) && enemy3PositionX != enemy2PositionX){
+    enemy3PositionY = 0;
+    
+    enemy3PositionX = int (random(20,250));
+  }
+    
+  noStroke();
+  fill(255);
+  rect(enemy3PositionX,enemy3PositionY,20,20);
+
+  }
+}
+
+void spawnEnemy4 ()
+{
+  if(gameIsOver == false){
+  enemy4PositionY = enemy4PositionY + enemy4Speed;
+  
+  if(enemy4PositionY>random(410,420) && enemy4PositionX != enemy3PositionX){
+    enemy4PositionY = 0;
+    
+    enemy4PositionX = int (random(30,250));
+  }
+    
+  noStroke();
+  fill(255);
+  rect(enemy4PositionX,enemy4PositionY,20,20);
+
+  }
+}
+
+void spawnEnemy5 ()
+{
+  if(gameIsOver == false){
+  enemy5PositionY = enemy5PositionY + enemy5Speed;
+  
+  if(enemy5PositionY>random(410,420) && enemy5PositionX != enemy4PositionX){
+    enemy5PositionY = 0;
+    
+    enemy5PositionX = int (random(50,150));
+  }
+    
+  noStroke();
+  fill(255);
+  rect(enemy5PositionX,enemy5PositionY,20,20);
+
+  }
+}
+
+
+void collisionDetection1 (){
+  
+  if (playerPositionX +10 > (enemy1PositionX -20) && playerPositionY +10 < (enemy1PositionY +20) && playerPositionX -10 <(enemy1PositionX+20) && playerPositionY -10 > (enemy1PositionY -20) && gameIsOver == false )
+  {
+    gameIsOver = true;
+  }
+  
+}
+
+void collisionDetection2 (){
+  
+  if (playerPositionX +10 > (enemy2PositionX -20) && playerPositionY +10 < (enemy2PositionY +20) && playerPositionX -10 <(enemy2PositionX+20) && playerPositionY -10 > (enemy2PositionY -20) && gameIsOver == false )
+  {
+    gameIsOver = true;
+  }
+  
+}
+
+void collisionDetection3 (){
+  
+  if (playerPositionX +10 > (enemy3PositionX -20) && playerPositionY +10 < (enemy3PositionY +20) && playerPositionX -10 <(enemy3PositionX+20) && playerPositionY -10 > (enemy3PositionY -20) && gameIsOver == false )
+  {
+    gameIsOver = true;
+  }
+  
+}
+
+void collisionDetection4 (){
+  
+  if (playerPositionX +10 > (enemy4PositionX -20) && playerPositionY +10 < (enemy4PositionY +20) && playerPositionX -10 <(enemy4PositionX+20) && playerPositionY -10 > (enemy4PositionY -20) && gameIsOver == false )
+  {
+    gameIsOver = true;
+  }
+  
+}
+
+void collisionDetection5 (){
+  
+  if (playerPositionX +10 > (enemy5PositionX -20) && playerPositionY +10 < (enemy5PositionY +20) && playerPositionX -10 <(enemy5PositionX+20) && playerPositionY -10 > (enemy5PositionY -20) && gameIsOver == false )
+  {
+    gameIsOver = true;
+  }
+  
 }
