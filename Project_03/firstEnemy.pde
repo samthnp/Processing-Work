@@ -43,8 +43,14 @@ class firstEnemy
     void displayFirstEnemy()
     {
       noStroke();
-      fill(255);
+      fill(255,0,0);
       ellipseMode(CENTER);
       circle(enemyLocation.x,enemyLocation.y,enemyRadius);
+      fill(153,0,0);
+      circle(enemyLocation.x,enemyLocation.y,enemyRadius/1.5);
+      fill(102,0,0);
+      circle(enemyLocation.x,enemyLocation.y,enemyRadius/2);
+      fill(255,0,0);
+      circle(enemyLocation.x,enemyLocation.y,enemyRadius/4);
     }
 }

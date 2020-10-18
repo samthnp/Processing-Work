@@ -6,7 +6,7 @@ boolean downMovement = false;
 PVector playerLocation = new PVector (0,0);
 PVector playerVelocity = new PVector (0,0);
 
-float playerSpeed = 5;
+float playerSpeed = 2.5;
 float playerFriction = 0.5;
 
 float lineOffset;
@@ -64,22 +64,22 @@ class player
     
     void playerConstraint ()
     {
-      if (playerLocation.x < 0)
+      if (playerLocation.x < 10)
       {
-        playerLocation.x = 0;
+        playerLocation.x = 10;
       }
-      else if (playerLocation.x > 100)
+      else if (playerLocation.x > 90)
       {
-        playerLocation.x = 100;
+        playerLocation.x = 90;
       }
       
-      if (playerLocation.y < 0 )
+      if (playerLocation.y < 10 )
       {
-        playerLocation.y = 0;
+        playerLocation.y = 10;
       }
-      else if (playerLocation.y > 400)
+      else if (playerLocation.y > 390)
       {
-        playerLocation.y = 400;
+        playerLocation.y = 390;
       }
     }
 
@@ -88,7 +88,7 @@ class player
     {
       rectMode(CENTER);
       noStroke();
-      fill(255,0,0);
+      fill(255,255,0);
       
       rect(playerLocation.x,playerLocation.y,15,15);
       strokeWeight(2.5);
