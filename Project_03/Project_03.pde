@@ -1,15 +1,18 @@
 player p;
 firstEnemy firstE1;
 firstEnemy firstE2;
+crosshair c;
 
 
 void setup ()
 
 {
     size(400,400);
+    frameRate(60);
     p = new player();
-    firstE1 = new firstEnemy(50,10);
-    firstE2 = new firstEnemy(25,5);
+    c = new crosshair();
+    firstE1 = new firstEnemy(20,5);
+    firstE2 = new firstEnemy(7.5,6.5);
     noCursor();
 }
 
@@ -17,6 +20,11 @@ void draw()
 {
     background(0);
     p.playerCharacter();
+    c.drawCrosshair();
+    
+    firstE1.enemyCharacter();
+    firstE2.enemyCharacter();
+    
 }
 
 void keyPressed()
