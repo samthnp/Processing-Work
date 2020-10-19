@@ -1,9 +1,17 @@
 PVector crosshairLocation = new PVector (mouseX,mouseY);
 
+boolean crosshairInSight = false;
+
 class crosshair
 {
   
   float reticleSize = 50;
+  
+  void enableCrosshair()
+  {
+    drawCrosshair();
+    shootingEffect();
+  }
   
   void drawCrosshair()
   {
@@ -23,7 +31,21 @@ class crosshair
     line(mouseX,mouseY+15,mouseX,mouseY+30);
     line(mouseX-15,mouseY,mouseX-30,mouseY);
     line(mouseX+15,mouseY,mouseX+30,mouseY);
-    
   }
   
+  void shootingEffect()
+  {
+    if (mousePressed)
+    {
+      rectMode(CORNERS);
+      noStroke();
+      fill(255,0,0);
+      rect();
+      rect();
+      rect();
+      rect();
+    }
+  }
+  
+
 }

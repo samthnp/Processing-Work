@@ -9,8 +9,6 @@ PVector playerVelocity = new PVector (0,0);
 float playerSpeed = 2.5;
 float playerFriction = 0.5;
 
-float lineOffset;
-
 class player
 {      
     player ()
@@ -82,19 +80,22 @@ class player
         playerLocation.y = 390;
       }
     }
-
      
     void displayPlayer()
     {
       rectMode(CENTER);
-      noStroke();
-      fill(255,255,0);
-      
-      rect(playerLocation.x,playerLocation.y,15,15);
       strokeWeight(2.5);
-      stroke(255,255,255);
-
+      stroke(51,51,255);
+      fill(0,255,255);
+      rect(playerLocation.x,playerLocation.y,30,30);
+      
+      strokeWeight(2.5);
+      stroke(51,51,255);
+      circle(playerLocation.x,playerLocation.y,25);
+      
+      noStroke();
+      fill(0,0,255);
+      circle(playerLocation.x,playerLocation.y,10);
+      
     }
-    
-    
 }

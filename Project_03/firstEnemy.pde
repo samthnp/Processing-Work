@@ -1,47 +1,52 @@
 boolean gameOver = false;
 
+boolean collisionEnabled = true;
+boolean displayEnabled = true;
+
 class firstEnemy
 {
+
+  PVector enemyLocation = new PVector();
+  PVector enemyVelocity = new PVector();
   
-     PVector enemyLocation = new PVector (400, random(50,300));
-     PVector enemyVelocity = new PVector (0,0);
-     
-     float enemyFriction = 0.5;
-     
-     
-     float enemyRadius;
-     float enemySpeed;
+  float enemyRadius;
   
-    firstEnemy (float tempRadius, float tempSpeed)
-    {    
-      enemyRadius = tempRadius;
-      enemySpeed = tempSpeed;
-    } 
-        
-    void enemyCharacter()
+  firstEnemy(float tempRadius)
+  {
+    resetEnemyLocation();
+    enemyRadius = tempRadius;
+  }
+  
+  void enemyCharacter()
+  {
+    enemyMove();
+    displayFirstEnemy();
+  }
+  
+  void enemyMove()
+  {
+    enemyLocation.add(enemyVelocity);
+    
+    if(enemyLocation.x < -20)
     {
-      if (gameOver == false)
-      {
-        displayFirstEnemy();
-        enemyMovement();
-      }
+      resetEnemyLocation();
     }
     
-    void enemyMovement()
+    if(mousePressed && mouseX > enemyLocation.x && mouseX < enemyLocation.x+50 && mouseY > enemyLocation.y-50 && mouseY < enemyLocation.y+50)
     {
-       enemyVelocity.x = -enemySpeed;
-       enemyVelocity.mult(enemyFriction);
-       enemyLocation.add(enemyVelocity);
-       
-       if (enemyLocation.x < 0.1)
-       {
-         enemyLocation.x = 410;
-         enemyLocation.y = random (20,380);
-       }
+      resetEnemyLocation();
     }
+  }
+  
+  void resetEnemyLocation()
+  {
+    enemyLocation.x = 400+random(10,500);
+    enemyLocation.y = random(0,400);
+    enemyVelocity.x = random(-5,-1);
+  }
        
-    void displayFirstEnemy()
-    {
+  void displayFirstEnemy()
+  {
       noStroke();
       fill(255,0,0);
       ellipseMode(CENTER);
@@ -52,5 +57,5 @@ class firstEnemy
       circle(enemyLocation.x,enemyLocation.y,enemyRadius/2);
       fill(255,0,0);
       circle(enemyLocation.x,enemyLocation.y,enemyRadius/4);
-    }
+  }
 }
