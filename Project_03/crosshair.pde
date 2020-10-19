@@ -25,6 +25,8 @@ class crosshair
     fill(255);
     circle(mouseX,mouseY,reticleSize/6);
     
+
+    
     strokeWeight(3);
     stroke(255);
     line(mouseX,mouseY-15,mouseX,mouseY-30);
@@ -37,13 +39,17 @@ class crosshair
   {
     if (mousePressed)
     {
-      rectMode(CORNERS);
-      noStroke();
-      fill(255,0,0);
-      rect();
-      rect();
-      rect();
-      rect();
+      rectMode(CORNER);
+      noStroke();;      fill(255,0,0);
+      rect(0,0,10,40);
+      rect(0,0,40,10);
+      rect(0,360,10,400);
+      rect(0,400,40,390);
+      
+      rect(360,0,400,10);
+      rect(390,0,400,40);
+      rect(360,390,400,400);
+      rect(390,360,400,400);
     }
   }
   
