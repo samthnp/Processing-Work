@@ -24,16 +24,19 @@ class player
     // main fuction for player class
     void playerCharacter ()
     {
-      playerMovement();
-      playerConstraint();
-      displayPlayer();
+      if(gameOver == false)
+      {    
+        updatePlayer();
+        playerConstraint();
+        displayPlayer();
+      }
     }
     
     /* 
     make player moves by using variables that is assigned
     when a keyboard key is pressed and player's input is registered
     */
-    void playerMovement()
+    void updatePlayer()
     {
        if (keyPressed)
        {
@@ -99,11 +102,16 @@ class player
     // function to display player visual 
     void displayPlayer()
     {
+      strokeWeight(5);
+      stroke(51,51,255);
+      noFill();
+      line(playerLocation.x,playerLocation.y,playerLocation.x,playerLocation.y+40);
+      
       rectMode(CENTER);
       strokeWeight(2.5);
       stroke(51,51,255);
       fill(0,255,255);
-      rect(playerLocation.x,playerLocation.y,30,30);
+
       
       strokeWeight(2.5);
       stroke(51,51,255);

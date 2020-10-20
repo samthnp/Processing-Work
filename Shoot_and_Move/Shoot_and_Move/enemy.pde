@@ -4,7 +4,7 @@ boolean gameOver = false;
 // create a variable for when an enemy is shot by players
 boolean enemyIsShot = false;
 
-class firstEnemy
+class enemy
 {
   
   // create PVector variables  for Location and velocity
@@ -15,7 +15,7 @@ class firstEnemy
   float enemyRadius;
   
   // create tempRadius variable to wait for a value from the main file
-  firstEnemy(float tempRadius)
+  enemy(float tempRadius)
   {
     resetEnemyLocation();
     enemyRadius = tempRadius;
@@ -24,14 +24,17 @@ class firstEnemy
   // main function for the enemy class
   void enemyCharacter()
   {
-    collision();
-    enemyMove();
-    enemyHitRegistration();
-    displayFirstEnemy();
+    if (gameOver == false)
+    {
+      collision();
+      updateEnemy();
+      enemyHitRegistration();
+      displayEnemy();
+    }
   }
   
   // function that makes enemies move their location
-  void enemyMove()
+  void updateEnemy()
   {
     // adding velocity to enemy's location
     enemyLocation.add(enemyVelocity);
@@ -42,7 +45,12 @@ class firstEnemy
     {
       // call the function to reset enemy position
       resetEnemyLocation();
-    }   
+    } 
+    
+    if(gameOver == true)
+    {
+      resetEnemyLocation();
+    }
   }
   
   // function for when player puts the mouse on enemy and click on it to shoot
@@ -57,7 +65,7 @@ class firstEnemy
             line(mouseX-10,mouseY-10,mouseX+10,mouseY+10);
             line(mouseX+10,mouseY-10,mouseX-10,mouseY+10);
             
-            // shootingEffect
+            /* shootingEffect
             rectMode(CORNER);
             noStroke();;      
             fill(255,0,0);
@@ -70,8 +78,9 @@ class firstEnemy
             rect(390,0,400,40);
             rect(360,390,400,400);
             rect(390,360,400,400);
+            */
         
-            resetEnemyLocation();        
+            resetEnemyLocation();
         }    
   }
   
@@ -87,7 +96,7 @@ class firstEnemy
   }
   
   // function to draw the enemy visual
-  void displayFirstEnemy()
+  void displayEnemy()
   {
       noStroke();
       fill(0,255,0);
@@ -103,6 +112,9 @@ class firstEnemy
   
   void collision()
   {
-    
+    if (playerLocation.x > enemyLocation.x && playerLocation.x < enemyLocation.x+50 && playerLocation.y > enemyLocation.y-50 && playerLocation.y < enemyLocation.y+50)
+    {
+      gameOver = true;
+    }
   }
 }

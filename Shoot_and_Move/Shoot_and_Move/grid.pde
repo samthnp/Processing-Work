@@ -1,7 +1,10 @@
 class grid
 {
-  void drawGrid()
+  void displayGrid()
   {
-    
+    if (gameOver == false)
+    {
+      
+    }
   }
 }

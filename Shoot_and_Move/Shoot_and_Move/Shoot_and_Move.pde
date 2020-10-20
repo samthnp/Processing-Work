@@ -1,20 +1,23 @@
 // setup classes
 player p;
-firstEnemy firstE1;
-firstEnemy firstE2;
-firstEnemy firstE3;
-firstEnemy firstE4;
-firstEnemy firstE5;
-firstEnemy firstE6;
-firstEnemy firstE7;
-firstEnemy firstE8;
-firstEnemy firstE9;
-firstEnemy firstE10;
-firstEnemy firstE11;
-firstEnemy firstE12;
+
+enemy firstE1;
+enemy firstE2;
+enemy firstE3;
+enemy firstE4;
+enemy firstE5;
+enemy firstE6;
+enemy firstE7;
+enemy firstE8;
+enemy firstE9;
+enemy firstE10;
+enemy firstE11;
+enemy firstE12;
+
 
 crosshair c;
-grid g;
+grid grid;
+gameOverScreen g;
 
 
 void setup ()
@@ -34,21 +37,24 @@ void setup ()
     c = new crosshair();   
     
     // initialize grid class
-    g = new grid();
+    grid = new grid();
+    
+    // initialize the game over screen class
+    g = new gameOverScreen();
        
     // initialize enemy class
-    firstE1 = new firstEnemy(75);
-    firstE2 = new firstEnemy(50);
-    firstE3 = new firstEnemy(45);
-    firstE4 = new firstEnemy(40);
-    firstE5 = new firstEnemy(35);
-    firstE6 = new firstEnemy(30);
-    firstE7 = new firstEnemy(100);
-    firstE8 = new firstEnemy(25);
-    firstE9 = new firstEnemy(42);
-    firstE10 = new firstEnemy(37);
-    firstE11 = new firstEnemy(58);
-    firstE12 = new firstEnemy(66);
+    firstE1 = new enemy(75);
+    firstE2 = new enemy(50);
+    firstE3 = new enemy(45);
+    firstE4 = new enemy(40);
+    firstE5 = new enemy(35);
+    firstE6 = new enemy(30);
+    firstE7 = new enemy(100);
+    firstE8 = new enemy(25);
+    firstE9 = new enemy(42);
+    firstE10 = new enemy(37);
+    firstE11 = new enemy(58);
+    firstE12 = new enemy(66);
   
 }
 
@@ -60,8 +66,8 @@ void draw()
     
     // draw player's area on the left side
     strokeWeight(5);
-    stroke(0,153,153);
-    fill(252,252,252);
+    noStroke();
+    fill(255,102,102);
     rect(50,50,100,800);
     
     // draw enemy's area on the right side
@@ -72,6 +78,12 @@ void draw()
     
     // call the player class
     p.playerCharacter();
+    
+    // call the grid class
+    grid.displayGrid();
+    
+    // call the game over screen class
+    g.setupGameOverScreen();
     
     // call the enemy class
     firstE1.enemyCharacter();
@@ -85,13 +97,11 @@ void draw()
     firstE9.enemyCharacter();
     firstE10.enemyCharacter();
     firstE11.enemyCharacter();
-    firstE12.enemyCharacter();
+    firstE12.enemyCharacter();   
     
     // call the crosshair class
     c.enableCrosshair();
-    
-    // call the grid class
-    g.drawGrid();
+
 }
 
 // assign player's input on the keyboard

@@ -9,11 +9,15 @@ class crosshair
   // main function
   void enableCrosshair()
   {
-    drawCrosshair();
+    if (gameOver == false)
+    {
+      displayCrosshair();
+      displayBullet();
+    }
   }
   
   // display the visual for crosshair
-  void drawCrosshair()
+  void displayCrosshair()
   {
     strokeWeight(3.5);
     stroke(0,0,0);
@@ -23,9 +27,7 @@ class crosshair
     
     noStroke();
     fill(0);
-    circle(mouseX,mouseY,reticleSize/6);
-    
-
+    circle(mouseX,mouseY,reticleSize/6);    
     
     strokeWeight(3);
     stroke(0);
@@ -33,6 +35,16 @@ class crosshair
     line(mouseX,mouseY+15,mouseX,mouseY+30);
     line(mouseX-15,mouseY,mouseX-30,mouseY);
     line(mouseX+15,mouseY,mouseX+30,mouseY);
+  }
+  
+  void displayBullet()
+  {
+    if (mousePressed)
+    {
+      strokeWeight(5);
+      stroke(255,0,0,400);
+      line(playerLocation.x,playerLocation.y,mouseX,mouseY);
+    }
   }
   
 }
