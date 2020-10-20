@@ -24,6 +24,7 @@ class firstEnemy
   // main function for the enemy class
   void enemyCharacter()
   {
+    collision();
     enemyMove();
     enemyHitRegistration();
     displayFirstEnemy();
@@ -39,6 +40,7 @@ class firstEnemy
     // in this case, enemy moves from right to left and reset to the right when it reaches the left side
     if(enemyLocation.x < -20)
     {
+      // call the function to reset enemy position
       resetEnemyLocation();
     }   
   }
@@ -48,12 +50,9 @@ class firstEnemy
   {    
       // create a condition when a mouse is clicked on enemy location
       if(mousePressed && mouseX > enemyLocation.x && mouseX < enemyLocation.x+50 && mouseY > enemyLocation.y-50 && mouseY < enemyLocation.y+50)
-        {
-          enemyIsShot = true;          
-          // hit registration effect
-         if (enemyIsShot == true)
-          {
-            strokeWeight(3);
+        {                   
+            // hit registration effect
+            strokeWeight(5);
             stroke(255,0,0,400);
             line(mouseX-10,mouseY-10,mouseX+10,mouseY+10);
             line(mouseX+10,mouseY-10,mouseX-10,mouseY+10);
@@ -71,28 +70,23 @@ class firstEnemy
             rect(390,0,400,40);
             rect(360,390,400,400);
             rect(390,360,400,400);
-          }
-          else if (enemyIsShot == false)
-          {
-            strokeWeight(3);
-            stroke(255,255,255,0);
-            line(mouseX-10,mouseY-10,mouseX+10,mouseY+10);
-            line(mouseX+10,mouseY-10,mouseX-10,mouseY+10);
-          }
-          
-        resetEnemyLocation();
         
+            resetEnemyLocation();        
         }    
   }
   
+  // function to restore all the value to reset enemy position
   void resetEnemyLocation()
   {
-    frameRate(60);
+    // when resetting enemy position, put it on the right side
     enemyLocation.x = 400+random(10,500);
+    // when resetting enemy position on X axis, also assign a random Y value
     enemyLocation.y = random(0,400);
+    // also assign a random value of velocity to enemy
     enemyVelocity.x = random(-2,-1);
   }
-       
+  
+  // function to draw the enemy visual
   void displayFirstEnemy()
   {
       noStroke();
@@ -105,5 +99,10 @@ class firstEnemy
       circle(enemyLocation.x,enemyLocation.y,enemyRadius/2);
       fill(0,255,0);
       circle(enemyLocation.x,enemyLocation.y,enemyRadius/4);
+  }
+  
+  void collision()
+  {
+    
   }
 }

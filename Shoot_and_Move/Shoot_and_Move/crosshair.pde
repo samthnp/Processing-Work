@@ -16,19 +16,19 @@ class crosshair
   void drawCrosshair()
   {
     strokeWeight(3.5);
-    stroke(255,255,255);
+    stroke(0,0,0);
     noFill();
     
     circle(mouseX,mouseY,reticleSize);
     
     noStroke();
-    fill(255);
+    fill(0);
     circle(mouseX,mouseY,reticleSize/6);
     
 
     
     strokeWeight(3);
-    stroke(255);
+    stroke(0);
     line(mouseX,mouseY-15,mouseX,mouseY-30);
     line(mouseX,mouseY+15,mouseX,mouseY+30);
     line(mouseX-15,mouseY,mouseX-30,mouseY);
