@@ -1,19 +1,11 @@
 // setup classes
 player p;
 
-enemy firstE1;
-enemy firstE2;
-enemy firstE3;
-enemy firstE4;
-enemy firstE5;
-enemy firstE6;
-enemy firstE7;
-enemy firstE8;
-enemy firstE9;
-enemy firstE10;
-enemy firstE11;
-enemy firstE12;
+int numberOfEnemy = 12;
 
+enemy [] e = new enemy [numberOfEnemy];
+
+enemy Enemy;
 
 crosshair c;
 grid grid;
@@ -41,20 +33,15 @@ void setup ()
     
     // initialize the game over screen class
     g = new gameOverScreen();
+    
+    Enemy = new enemy(50);
        
-    // initialize enemy class
-    firstE1 = new enemy(75);
-    firstE2 = new enemy(50);
-    firstE3 = new enemy(45);
-    firstE4 = new enemy(40);
-    firstE5 = new enemy(35);
-    firstE6 = new enemy(30);
-    firstE7 = new enemy(100);
-    firstE8 = new enemy(25);
-    firstE9 = new enemy(42);
-    firstE10 = new enemy(37);
-    firstE11 = new enemy(58);
-    firstE12 = new enemy(66);
+    initializeEnemy();
+  
+}
+
+void initializeEnemy()
+{
   
 }
 
@@ -86,18 +73,7 @@ void draw()
     g.setupGameOverScreen();
     
     // call the enemy class
-    firstE1.enemyCharacter();
-    firstE2.enemyCharacter();
-    firstE3.enemyCharacter();
-    firstE4.enemyCharacter();
-    firstE5.enemyCharacter();
-    firstE6.enemyCharacter();
-    firstE7.enemyCharacter();
-    firstE8.enemyCharacter();
-    firstE9.enemyCharacter();
-    firstE10.enemyCharacter();
-    firstE11.enemyCharacter();
-    firstE12.enemyCharacter();   
+    Enemy.enemyCharacter();
     
     // call the crosshair class
     c.enableCrosshair();

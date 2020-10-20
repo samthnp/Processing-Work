@@ -62,8 +62,8 @@ class enemy
             // hit registration effect
             strokeWeight(5);
             stroke(255,0,0,400);
-            line(mouseX-10,mouseY-10,mouseX+10,mouseY+10);
-            line(mouseX+10,mouseY-10,mouseX-10,mouseY+10);
+            line(mouseX-20,mouseY-20,mouseX+20,mouseY+20);
+            line(mouseX+20,mouseY-20,mouseX-20,mouseY+20);
             
             /* shootingEffect
             rectMode(CORNER);
