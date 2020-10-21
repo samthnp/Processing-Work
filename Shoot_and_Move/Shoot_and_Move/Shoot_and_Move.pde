@@ -3,14 +3,13 @@ player p;
 
 int numberOfEnemy = 12;
 
-enemy [] e = new enemy [numberOfEnemy];
+enemy[] e = new enemy[12];
 
 enemy Enemy;
 
 crosshair c;
 grid grid;
 gameOverScreen g;
-
 
 void setup ()
 
@@ -32,9 +31,7 @@ void setup ()
     grid = new grid();
     
     // initialize the game over screen class
-    g = new gameOverScreen();
-    
-    Enemy = new enemy(50);
+    g = new gameOverScreen();    
        
     initializeEnemy();
   
@@ -42,7 +39,18 @@ void setup ()
 
 void initializeEnemy()
 {
-  
+    e[0] = new enemy(75);
+    e[1] = new enemy(45);
+    e[2] = new enemy(60);
+    e[3] = new enemy(55);
+    e[4] = new enemy(40);
+    e[5] = new enemy(35);
+    e[6] = new enemy(25);
+    e[7] = new enemy(20);
+    e[8] = new enemy(15);
+    e[9] = new enemy(23);
+    e[10] = new enemy(37);
+    e[11] = new enemy(43);
 }
 
 void draw()
@@ -73,7 +81,8 @@ void draw()
     g.setupGameOverScreen();
     
     // call the enemy class
-    Enemy.enemyCharacter();
+    e[0].enemyCharacter();
+    e[1].enemyCharacter();
     
     // call the crosshair class
     c.enableCrosshair();
