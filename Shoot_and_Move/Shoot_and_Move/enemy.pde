@@ -73,6 +73,8 @@ class enemy
          line(mouseX-20,mouseY-20,mouseX+20,mouseY+20);
          line(mouseX+20,mouseY-20,mouseX-20,mouseY+20);
             
+         enemyIsShot = true;
+            
          /* shootingEffect
          rectMode(CORNER);
          noStroke();;      
@@ -96,6 +98,7 @@ class enemy
   // function to restore all the value to reset enemy position
   void resetEnemyLocation()
   {
+    enemyIsShot = false;
     // when resetting enemy position, put it on the right side
     enemyLocation.x = 400+random(10,500);
     // when resetting enemy position on X axis, also assign a random Y value

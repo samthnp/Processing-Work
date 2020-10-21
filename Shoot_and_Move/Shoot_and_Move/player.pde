@@ -101,22 +101,29 @@ class player
     
     // function to display player visual 
     void displayPlayer()
-    {
+    {      
+      rectMode(CENTER);
+      
+      // draw body
       strokeWeight(5);
-      stroke(51,51,255);
+      stroke(0);
       noFill();
       line(playerLocation.x,playerLocation.y,playerLocation.x,playerLocation.y+40);
       
-      rectMode(CENTER);
-      strokeWeight(2.5);
-      stroke(51,51,255);
-      fill(0,255,255);
-
+      // draw legs
+      line(playerLocation.x,playerLocation.y+40,playerLocation.x-12,playerLocation.y+50);
+      line(playerLocation.x,playerLocation.y+40,playerLocation.x+12,playerLocation.y+50);
       
+      // draw arms
+      line(playerLocation.x-15,playerLocation.y+20,playerLocation.x+15,playerLocation.y+20);
+      
+      // draw head
       strokeWeight(2.5);
-      stroke(51,51,255);
+      stroke(0);
+      fill(255);
       circle(playerLocation.x,playerLocation.y,25);
       
+      // draw eye
       noStroke();
       fill(0,0,255);
       circle(playerLocation.x,playerLocation.y,10);

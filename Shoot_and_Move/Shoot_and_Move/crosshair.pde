@@ -12,12 +12,25 @@ class crosshair
     if (gameOver == false)
     {
       displayCrosshair();
-      displayBullet();
+      displayLaser();
     }
   }
   
   // display the visual for crosshair
   void displayCrosshair()
+  {
+    if (enemyIsShot == false)
+    {
+      normalCrosshairColor();
+    }
+    
+    else if (enemyIsShot == true)
+    {
+      redCrosshairColor();
+    }
+  }
+  
+  void normalCrosshairColor()
   {
     strokeWeight(3.5);
     stroke(0,0,0);
@@ -37,13 +50,34 @@ class crosshair
     line(mouseX+15,mouseY,mouseX+30,mouseY);
   }
   
-  void displayBullet()
+  void redCrosshairColor()
+  {
+    println("red");
+    strokeWeight(3.5);
+    stroke(255,0,0);
+    noFill();
+    
+    circle(mouseX,mouseY,reticleSize);
+    
+    noStroke();
+    fill(0);
+    circle(mouseX,mouseY,reticleSize/6);    
+    
+    strokeWeight(3);
+    stroke(255);
+    line(mouseX,mouseY-15,mouseX,mouseY-30);
+    line(mouseX,mouseY+15,mouseX,mouseY+30);
+    line(mouseX-15,mouseY,mouseX-30,mouseY);
+    line(mouseX+15,mouseY,mouseX+30,mouseY);
+  }
+  
+  void displayLaser()
   {
     if (mousePressed)
     {
-      strokeWeight(5);
+      strokeWeight(10);
       stroke(255,0,0,400);
-      line(playerLocation.x,playerLocation.y,mouseX,mouseY);
+      line(playerLocation.x+15,playerLocation.y+20,mouseX,mouseY);
     }
   }
   

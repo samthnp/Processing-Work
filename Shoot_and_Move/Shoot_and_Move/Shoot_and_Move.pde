@@ -1,11 +1,15 @@
 /*
 
   Shoot and Move!
+  
+  Object-oriented Toy
+  
   By Thanapon Ponpadung
   
   21-Oct-2020
   
-  Shoot the incoming enemy while avoiding them! 
+  Shoot the incoming enemy while avoiding them!
+  Survive as long as possible to get high score.
   Get hit by any enemies and the game is over
   You also cannot move outside of your constraint field
   
@@ -19,13 +23,13 @@
 // setup classes
 player p;
 
-int numberOfEnemy = 50;
+int numberOfEnemy = 20;
 
 enemy[] e = new enemy[numberOfEnemy];
 
 crosshair c;
 boolean enemyInCrosshair = false;
-grid grid;
+grid grids;
 gameOverScreen g;
 
 void setup ()
@@ -45,7 +49,7 @@ void setup ()
     c = new crosshair();   
     
     // initialize grid class
-    grid = new grid();
+    grids = new grid();
     
     // initialize the game over screen class
     g = new gameOverScreen();    
@@ -91,24 +95,24 @@ void draw()
     rectMode(CORNERS);
     rect(100,0,400,400);
     
-    // call the player class
-    p.playerCharacter();
-    
     // call the grid class
-    grid.displayGrid();
+    grids.initializeGrid();
     
     // call the game over screen class
     g.setupGameOverScreen();
     
     // call the enemy class   
-
-      for (int i=0; i<e.length; i++)
-      {
-        e[i].enemyCharacter();
-      }   
+    for (int i=0; i<e.length; i++)
+    {
+      e[i].enemyCharacter();
+    }
     
+        
     // call the crosshair class
     c.enableCrosshair();
+            
+    // call the player class
+    p.playerCharacter();
     
     // call the restart function to reset everything
     reInitializeGame();
