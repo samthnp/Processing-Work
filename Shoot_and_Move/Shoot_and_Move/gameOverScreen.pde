@@ -1,3 +1,6 @@
+// a variable that determine the restart of the game
+boolean restartGame = false;
+
 class gameOverScreen
 {
   // main function for the gameOverScreen class
@@ -36,6 +39,7 @@ class gameOverScreen
      if (mousePressed)
      {
        gameOver = false;
+       restartGame = true;
      }
       
     }

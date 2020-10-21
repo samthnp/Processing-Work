@@ -51,6 +51,7 @@ void setup ()
     g = new gameOverScreen();    
        
     initializeEnemy();
+    restartGame = false;
   
 }
 
@@ -60,6 +61,16 @@ void initializeEnemy()
     {
       e[i] = new enemy(random(55,15));
     }
+}
+
+// a restart function that will reset everything once restartGame is true
+// restartGame will become true with a trigger in gameOverScreen
+void reInitializeGame()
+{
+  if(restartGame == true)
+  {
+  setup();
+  }
 }
 
 void draw()
@@ -89,14 +100,18 @@ void draw()
     // call the game over screen class
     g.setupGameOverScreen();
     
-    // call the enemy class
-    for (int i=0; i<e.length; i++)
-    {
-      e[i].enemyCharacter();
-    }
+    // call the enemy class   
+
+      for (int i=0; i<e.length; i++)
+      {
+        e[i].enemyCharacter();
+      }   
     
     // call the crosshair class
     c.enableCrosshair();
+    
+    // call the restart function to reset everything
+    reInitializeGame();
 
 }
 

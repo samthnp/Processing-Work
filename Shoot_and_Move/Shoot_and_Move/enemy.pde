@@ -15,8 +15,8 @@ class enemy
   
   // create tempRadius variable to wait for a value from the main file
   enemy(float tempRadius)
-  {
-    resetEnemyLocation();
+  {    
+    resetEnemyLocation();    
     enemyRadius = tempRadius;
   }
   
@@ -26,8 +26,8 @@ class enemy
     if (gameOver == false)
     {
       collision();
-      updateEnemy();
       enemyHitRegistration();
+      updateEnemy();
       destroyEnemy();
       displayEnemy();
     }
