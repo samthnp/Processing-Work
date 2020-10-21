@@ -1,13 +1,30 @@
+/*
+
+  Shoot and Move!
+  By Thanapon Ponpadung
+  
+  21-Oct-2020
+  
+  Shoot the incoming enemy while avoiding them! 
+  Get hit by any enemies and the game is over
+  You also cannot move outside of your constraint field
+  
+  Control
+  - Move up, down, left, right by W, A, S, D
+  - Aim using your mouse
+  - Shoot enemies by pressing the mouse
+  
+*/
+
 // setup classes
 player p;
 
-int numberOfEnemy = 12;
+int numberOfEnemy = 50;
 
-enemy[] e = new enemy[12];
-
-enemy Enemy;
+enemy[] e = new enemy[numberOfEnemy];
 
 crosshair c;
+boolean enemyInCrosshair = false;
 grid grid;
 gameOverScreen g;
 
@@ -39,18 +56,10 @@ void setup ()
 
 void initializeEnemy()
 {
-    e[0] = new enemy(75);
-    e[1] = new enemy(45);
-    e[2] = new enemy(60);
-    e[3] = new enemy(55);
-    e[4] = new enemy(40);
-    e[5] = new enemy(35);
-    e[6] = new enemy(25);
-    e[7] = new enemy(20);
-    e[8] = new enemy(15);
-    e[9] = new enemy(23);
-    e[10] = new enemy(37);
-    e[11] = new enemy(43);
+    for (int i = 0; i < e.length; i++)
+    {
+      e[i] = new enemy(random(55,15));
+    }
 }
 
 void draw()
@@ -81,8 +90,10 @@ void draw()
     g.setupGameOverScreen();
     
     // call the enemy class
-    e[0].enemyCharacter();
-    e[1].enemyCharacter();
+    for (int i=0; i<e.length; i++)
+    {
+      e[i].enemyCharacter();
+    }
     
     // call the crosshair class
     c.enableCrosshair();

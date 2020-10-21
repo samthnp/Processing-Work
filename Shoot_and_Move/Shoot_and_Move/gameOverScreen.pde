@@ -1,10 +1,17 @@
 class gameOverScreen
 {
+  // main function for the gameOverScreen class
   void setupGameOverScreen()
   {
     displayGameOverScreen();
   }
   
+  /* 
+    the function that will check whenever game over is true
+    and create a game over screen to tell player the game is over
+    then let them press down a mouse button and reset the gameOver boolean
+    which will return the game back to normal
+  */
   void displayGameOverScreen()
   {
     if (gameOver == true)

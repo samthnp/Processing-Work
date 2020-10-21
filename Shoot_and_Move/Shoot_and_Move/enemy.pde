@@ -6,13 +6,12 @@ boolean enemyIsShot = false;
 
 class enemy
 {
+    // create PVector variables  for Location and velocity
+    PVector enemyLocation = new PVector();
+    PVector enemyVelocity = new PVector();
   
-  // create PVector variables  for Location and velocity
-  PVector enemyLocation = new PVector();
-  PVector enemyVelocity = new PVector();
-  
-  // create a variable for enemy radius size
-  float enemyRadius;
+    // create a variable for enemy radius size
+    float enemyRadius;
   
   // create tempRadius variable to wait for a value from the main file
   enemy(float tempRadius)
@@ -29,6 +28,7 @@ class enemy
       collision();
       updateEnemy();
       enemyHitRegistration();
+      destroyEnemy();
       displayEnemy();
     }
   }
@@ -57,31 +57,40 @@ class enemy
   void enemyHitRegistration ()
   {    
       // create a condition when a mouse is clicked on enemy location
-      if(mousePressed && mouseX > enemyLocation.x && mouseX < enemyLocation.x+50 && mouseY > enemyLocation.y-50 && mouseY < enemyLocation.y+50)
+      if(mouseX > enemyLocation.x && mouseX < enemyLocation.x+50 && mouseY > enemyLocation.y-50 && mouseY < enemyLocation.y+50)
         {                   
-            // hit registration effect
-            strokeWeight(5);
-            stroke(255,0,0,400);
-            line(mouseX-20,mouseY-20,mouseX+20,mouseY+20);
-            line(mouseX+20,mouseY-20,mouseX-20,mouseY+20);
+          enemyInCrosshair = true;
+        }     
+  }
+  
+  void destroyEnemy()
+  {
+      if(mousePressed && enemyInCrosshair == true)
+       {
+         // hit registration effect
+         strokeWeight(5);
+         stroke(255,0,0,400);
+         line(mouseX-20,mouseY-20,mouseX+20,mouseY+20);
+         line(mouseX+20,mouseY-20,mouseX-20,mouseY+20);
             
-            /* shootingEffect
-            rectMode(CORNER);
-            noStroke();;      
-            fill(255,0,0);
-            rect(0,0,10,40);
-            rect(0,0,40,10);
-            rect(0,360,10,400);
-            rect(0,400,40,390);
+         /* shootingEffect
+         rectMode(CORNER);
+         noStroke();;      
+         fill(255,0,0);
+         rect(0,0,10,40);
+         rect(0,0,40,10);
+         rect(0,360,10,400);
+         rect(0,400,40,390);
             
-            rect(360,0,400,10);
-            rect(390,0,400,40);
-            rect(360,390,400,400);
-            rect(390,360,400,400);
-            */
-        
-            resetEnemyLocation();
-        }    
+         rect(360,0,400,10);
+         rect(390,0,400,40);
+         rect(360,390,400,400);
+         rect(390,360,400,400);
+         */
+            
+          enemyInCrosshair = false;
+          resetEnemyLocation();
+       }
   }
   
   // function to restore all the value to reset enemy position
