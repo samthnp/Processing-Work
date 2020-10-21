@@ -63,6 +63,7 @@ class enemy
         }     
   }
   
+  // create effect on crosshair when destroy enemies
   void destroyEnemy()
   {
       if(mousePressed && enemyInCrosshair == true)
@@ -122,6 +123,7 @@ class enemy
       circle(enemyLocation.x,enemyLocation.y,enemyRadius/4);
   }
   
+  // function to handle collision, use a bit off an offset for bigger hitbox
   void collision()
   {
     if (playerLocation.x > enemyLocation.x && playerLocation.x < enemyLocation.x+50 && playerLocation.y > enemyLocation.y-50 && playerLocation.y < enemyLocation.y+50)

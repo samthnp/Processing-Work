@@ -1,4 +1,4 @@
-// creating PVector a variable for crosshair movement
+// creating PVector as a variable for crosshair movement
 PVector crosshairLocation = new PVector (mouseX,mouseY);
 
 class crosshair
@@ -30,6 +30,7 @@ class crosshair
     }
   }
   
+  // normal crosshair
   void normalCrosshairColor()
   {
     strokeWeight(3.5);
@@ -50,6 +51,7 @@ class crosshair
     line(mouseX+15,mouseY,mouseX+30,mouseY);
   }
   
+  // crosshair for when player shoots enemies
   void redCrosshairColor()
   {
     println("red");
@@ -71,6 +73,7 @@ class crosshair
     line(mouseX+15,mouseY,mouseX+30,mouseY);
   }
   
+  // draw the visual for crosshair
   void displayLaser()
   {
     if (mousePressed)

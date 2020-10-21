@@ -24,6 +24,7 @@ class gameOverScreen
       rectMode(CORNERS);
       rect(0,0,400,400);
       
+      // showing the game over screen, telling player to click the mouse to restart
       textSize(22);
       stroke(2);
       fill(0);
@@ -38,6 +39,7 @@ class gameOverScreen
      
      if (mousePressed)
      {
+       // restart the game by calling the setup function, resetting everything
        gameOver = false;
        restartGame = true;
      }

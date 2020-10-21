@@ -4,11 +4,11 @@ boolean rightMovement = false;
 boolean upMovement = false;
 boolean downMovement = false;
 
-// assign PVector variables for player's movement
+// assign PVector variables for player's movement when the value changes
 PVector playerLocation = new PVector (0,0);
 PVector playerVelocity = new PVector (0,0);
 
-// assign speed and a frictin value for player
+// assign speed and frictin value for player
 float playerSpeed = 2.5;
 float playerFriction = 0.5;
 
@@ -74,7 +74,7 @@ class player
       playerLocation.add(playerVelocity);
     }
     
-    // function for the constraint for player position
+    // function for the constraint of player position
     void playerConstraint ()
     {
       // constraint on the left side
@@ -126,7 +126,6 @@ class player
       // draw eye
       noStroke();
       fill(0,0,255);
-      circle(playerLocation.x,playerLocation.y,10);
-      
+      circle(playerLocation.x,playerLocation.y,10);     
     }
 }

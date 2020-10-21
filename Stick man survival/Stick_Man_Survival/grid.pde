@@ -1,17 +1,13 @@
+// class that draw the grid in the background
 class grid
-{
-  
+{  
   PVector gridX = new PVector(20,0);
   PVector gridY = new PVector(20,400);
   
   PVector horizontalGridX = new PVector(0,20);
   PVector horizontalGridY = new PVector(400,20);
   
-  grid()
-  {
-    
-  }
-  
+  // main function for the grid class
   void initializeGrid()
   {
     if (gameOver == false)
@@ -20,6 +16,7 @@ class grid
     }
   }
   
+  // function to draw the background grid
   void displayGrid()
   {
     strokeWeight(1);

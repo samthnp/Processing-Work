@@ -1,6 +1,6 @@
 /*
 
-  Shoot and Move!
+  Stick Man Survival
   
   Object-oriented Toy
   
@@ -9,7 +9,6 @@
   21-Oct-2020
   
   Shoot the incoming enemy while avoiding them!
-  Survive as long as possible to get high score.
   Get hit by any enemies and the game is over
   You also cannot move outside of your constraint field
   
@@ -23,8 +22,10 @@
 // setup classes
 player p;
 
+// numbers of enemy to put in the array
 int numberOfEnemy = 20;
 
+// array used when called the enemy class, assigning the number of enemies
 enemy[] e = new enemy[numberOfEnemy];
 
 crosshair c;
@@ -55,10 +56,10 @@ void setup ()
     g = new gameOverScreen();    
        
     initializeEnemy();
-    restartGame = false;
-  
+    restartGame = false; 
 }
 
+// function to handle the array for easier maintance
 void initializeEnemy()
 {
     for (int i = 0; i < e.length; i++)
@@ -105,8 +106,7 @@ void draw()
     for (int i=0; i<e.length; i++)
     {
       e[i].enemyCharacter();
-    }
-    
+    }   
         
     // call the crosshair class
     c.enableCrosshair();
@@ -116,7 +116,6 @@ void draw()
     
     // call the restart function to reset everything
     reInitializeGame();
-
 }
 
 // assign player's input on the keyboard
@@ -143,7 +142,7 @@ void keyPressed()
   }
 }
 
-// preventing player's input from running forever. If the key's release, input will stop  
+// preventing player's input from running forever. If the key's released, input will stop  
 void keyReleased()
 {
   if (key == 'a' || key == 'A')
